@@ -9,26 +9,17 @@
 - Supports min and max stops
 - Supports fixed, proportional-values, and parent-based-values.
 
-#### Concept:
 
-You can implement FlexBoxItemKind and FlexBoxContainerKind 
+#### Example code:
 
-If you can add variables to the class you can implement the FlexBoxItemKind and FlexBoxContainerKind
+CustomContainer and CustomItem Extend FlexBoxContainerKind and FlexBoxItemKind respectively
+
 ```swift
-struct CustomItem:NSImage,FlexBoxItemKind{
-    /*create vars for initRect,grow,shrink,basis*/
+let container = self.addSubView(CustomContainer(frame.size.w,frame.size.h,.flexStart,.flexStart))/*Create FlexBoxContainer*/
+container.flexBoxItems = [1,1,1,3].enumerated().map{ (i,grow) in
+    return container.addSubView(CustomItem(80, 80, "item-" + i.string, grow, nil,i.string))
 }
-struct CustomContainer:NSView,FlexBoxContainerKind{
-    /*create vars for rect,flexBoxItems,justifyContent,alignItems*/
-}
-```
-
-Or you can extend classes with the Flexible protocol and then decorate with FlexBoxItem and FlexBoxContainer
-```swift
-extension NSImage:Felxible{
-    var flexSize {/*add getter and setter here*/}
-    var flexPoint{/*add getter and setter here*/}
-}
+container.flex()/*init layout distribution*/
 ```
 
 #### Code:
@@ -72,22 +63,33 @@ https://github.com/eonist/swift-utils/tree/master/Sources/Utils/misc/layout/flex
 #### Grow:2-1-2-1
 <img width="592" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/grow-2-1-2-1.png">
 
-#### Example code:
-
-```swift
-let size:CGSize = self.frame.size
-let frame:CGRect = CGRect(10,10,size.w-20,size.h-20)/*Add inset*/
-let flexibles:[Flexible] = [/*...*/]
-let flexBoxItems:[FlexBoxItem] = (0..<numBoxes).indices.map{ i in
-    FlexBoxItem(flexibles[i])
-}
-let flexBoxContainer = FlexBoxContainer(frame,flexBoxItems,.flexStart,.flexStart)
-FlexBoxModifier.flex(flexBoxContainer)
-```
-
 - **Flexible** is a protocol which views must adhere to. Basically must have settable/gettable size and position  
+- **FlexBoxItemKind** If you want items to flex, then the items must adhere to this protocol
+- **FlexBoxContainerKind** If you want flex items, then the container must adhere to this protocol
 - **FlexBoxContainer**  Holds the FlexItems and flex props that these should adhere to
 - **FlexBoxItem** Has a ref to the Flexible instance, and individual flex props that apply
+
+#### Concept:
+
+You can implement FlexBoxItemKind and FlexBoxContainerKind 
+
+If you can add variables to the class you can implement the FlexBoxItemKind and FlexBoxContainerKind
+```swift
+struct CustomItem:NSImage,FlexBoxItemKind{
+    /*create vars for initRect,grow,shrink,basis*/
+}
+struct CustomContainer:NSView,FlexBoxContainerKind{
+    /*create vars for rect,flexBoxItems,justifyContent,alignItems*/
+}
+```
+
+Or you can extend classes with the Flexible protocol and then decorate with FlexBoxItem and FlexBoxContainer
+```swift
+extension NSImage:Felxible{
+    var flexSize {/*add getter and setter here*/}
+    var flexPoint{/*add getter and setter here*/}
+}
+```
 
 #### Working on:
 - Implementing min max support
@@ -95,5 +97,5 @@ FlexBoxModifier.flex(flexBoxContainer)
 - Interactive resize-demo
 - Overflow support
 - Add protocols to support FlexBox w/o decoration
-- Column support
+- Column support (FlexBoxContainer it self must be able to flex I think)
 
