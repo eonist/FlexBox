@@ -1,3 +1,7 @@
+## FlexBox for swift
+  
+<img width="100" alt="img" src="https://rawgit.com/stylekit/img/master/FlexBoxIcon.svg">
+
 #### FlexBox is a layout distributor 
 
 - Proportionally distribute items
