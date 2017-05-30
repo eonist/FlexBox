@@ -2,12 +2,34 @@
   
 <img width="100" alt="img" src="https://rawgit.com/stylekit/img/master/FlexBoxIcon.svg">
 
-#### FlexBox is a layout distributor 
+#### FlexBox is a layout distributor: 
 
 - Proportionally distribute items
 - Easy to use
 - Supports min and max stops
 - Supports fixed, proportional-values, and parent-based-values.
+
+#### Concept:
+
+You can implement FlexBoxItemKind and FlexBoxContainerKind 
+
+If you can add variables to the class you can implement the FlexBoxItemKind and FlexBoxContainerKind
+```swift
+struct CustomItem:View,FlexBoxItemKind{
+    /*create vars for initRect,grow,shrink,basis*/
+}
+struct CustomContainer:View,FlexBoxContainerKind{
+    /*create vars for rect,flexBoxItems,justifyContent,alignItems*/
+}
+```
+
+Or you can extend classes with the Flexible protocol and then decorate with FlexBoxItem and FlexBoxContainer
+```swift
+extension NSImage:Felxible{
+    var flexSize {/*add getter and setter here*/}
+    var flexPoint{/*add getter and setter here*/}
+}
+```
 
 #### Code:
 https://github.com/eonist/swift-utils/tree/master/Sources/Utils/misc/layout/flexbox
