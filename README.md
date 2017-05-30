@@ -9,6 +9,7 @@
 - Supports min and max stops
 - Supports fixed, proportional-values, and parent-based-values.
 
+<img width="534" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-05-31 at 00.13.33.png">
 
 #### Example code:
 
