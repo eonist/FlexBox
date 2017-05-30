@@ -15,10 +15,10 @@ You can implement FlexBoxItemKind and FlexBoxContainerKind
 
 If you can add variables to the class you can implement the FlexBoxItemKind and FlexBoxContainerKind
 ```swift
-struct CustomItem:View,FlexBoxItemKind{
+struct CustomItem:NSImage,FlexBoxItemKind{
     /*create vars for initRect,grow,shrink,basis*/
 }
-struct CustomContainer:View,FlexBoxContainerKind{
+struct CustomContainer:NSView,FlexBoxContainerKind{
     /*create vars for rect,flexBoxItems,justifyContent,alignItems*/
 }
 ```
@@ -95,5 +95,5 @@ FlexBoxModifier.flex(flexBoxContainer)
 - Interactive resize-demo
 - Overflow support
 - Add protocols to support FlexBox w/o decoration
-
+- Column support
 
