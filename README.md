@@ -5,6 +5,9 @@
 - Supports min and max stops
 - Supports fixed, proportional-values, and parent-based-values.
 
+#### Code:
+https://github.com/eonist/swift-utils/tree/master/Sources/Utils/misc/layout/flexbox
+
 #### Examples:
 
 #### Grow: 1-1-1-3
