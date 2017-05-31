@@ -1,7 +1,10 @@
 import Foundation
 @testable import Element
 @testable import Utils
-
+/*func flexBoxTest()  {
+    NSApp.windows[0].close()
+    win = FlexBoxTestWin(500,(400 + 10))
+}*/
 class FlexBoxTestWin:Window {
     required init(_ docWidth:CGFloat,_ docHeight:CGFloat){
         super.init(docWidth, docHeight)
