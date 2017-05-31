@@ -23,9 +23,6 @@ container.flexBoxItems = [1,1,1,3].enumerated().map{ (i,grow) in
 container.flex()/*init layout distribution*/
 ```
 
-#### Code:
-https://github.com/eonist/swift-utils/tree/master/Sources/Utils/misc/layout/flexbox
-
 #### Examples:
 
 #### Grow: 1-1-1-3
