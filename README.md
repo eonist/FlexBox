@@ -97,3 +97,12 @@ extension NSImage:Felxible{
 - Add protocols to support FlexBox w/o decoration
 - Column support (FlexBoxContainer it self must be able to flex I think)
 
+### Some useful links while doing flexbox research:
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+http://cssreference.io/flexbox/
+
+https://yoksel.github.io/flex-cheatsheet/#flex-grow
+
+https://chriswrightdesign.com/experiments/flexbox-adventures/
