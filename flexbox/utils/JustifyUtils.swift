@@ -49,7 +49,7 @@ class JustifyUtils{
         }
     }
     /**
-     * Same as spaceBetween but does not pit to sides but rather add equal spacing there as well
+     * Same as spaceBetween but does not pin to sides but rather add equal spacing there as well
      */
     static func spaceAround(_ items:[FlexBoxItemKind], _ container:CGRect) {
         let totW:CGFloat = items.reduce(0){$0 + $1.flexible.size.width}/*find the totalW of all items*/
